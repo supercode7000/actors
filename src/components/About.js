@@ -7,12 +7,12 @@ class About extends Component {
         quiz: []
     }
     componentDidMount() {
-        fetch('https://opentdb.com/api.php?amount=10')
+        fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=3060deabfb6d4a2e9867e0d2004a5f88')
             .then((response) => {
                 return response.json();
             })
             .then((data) => {
-                this.setState({ quiz: data.results })
+                this.setState({ quiz: data.articles })
             });
     }
 
@@ -28,7 +28,7 @@ class About extends Component {
     render() {
         return (<section>
             <button onClick={this.fetchData}>Fetch Data</button>
-            {this.state.quiz.map((quiz, i) => <p key={i}>{quiz.question}</p>)}
+            {this.state.quiz.map((quiz, i) => <p key={i}>{quiz.source.name}</p>)}
         </section>);
     }
 }

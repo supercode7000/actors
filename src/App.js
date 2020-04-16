@@ -8,7 +8,7 @@ import './App.css';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
-import Contact1 from './components/Contact1';
+import ContactDetails from './components/Contact1';
 
 
 function App() {
@@ -29,9 +29,8 @@ function App() {
         <Route path='/contact' exact>
           <Contact />
         </Route>
-        <Route path='/contact/1'>
-          <Contact1 />
-        </Route>
+        <Route path='/contact/:id' render={(props) => <ContactDetails  {...props} />} />/>
+
       </Switch>
 
     </div>
